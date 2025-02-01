@@ -1,0 +1,63 @@
+nav {
+    background: #111111e4;
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid hsl(var(--border));
+    padding: 1rem 2rem;
+    width: 100vw;
+    position: sticky;
+    top: 0;
+    z-index: 99999;
+}
+
+.switcher:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.switcher * {
+    display: inline-block;
+    vertical-align: top;
+}
+
+nav .right, .left {
+    display: inline-block;
+    vertical-align: top;
+}
+
+nav .right {
+    float: right;
+    padding-top: 10px;
+}
+
+ul li {
+    display: inline-block;
+    margin: 0px 1rem;
+    cursor: pointer;
+}
+
+ul li:hover {
+    text-decoration: underline;
+}
+
+ul li:nth-child(4) {
+    margin: 0px 2rem;
+    animation: glow infinite 5s;
+}
+
+@keyframes glow {
+    0% {
+        color: #3bc560;
+    }
+    35% {
+        color: #3bc560;
+    }
+    50% {
+        color: #bff7d0;
+    }
+    65% {
+        color: #3bc560;
+    }
+    100% {
+        color: #3bc560;
+    }
+}

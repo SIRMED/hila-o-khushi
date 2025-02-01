@@ -1,0 +1,16 @@
+header {
+    position: relative;
+}
+
+header .info {
+    position: absolute;
+    top: 30%;
+    right: 5rem;
+    width: 60vw;
+    text-align: right;
+}
+
+header .info .paragraph {
+    padding-left: 20%;
+    font-size: 18px;
+}
