@@ -1,12 +1,21 @@
+"use client"
 import "./navbar.css"
-import * as React from "react"
-import Link from "next/link"
 import gilroy, { gilroyBlack, gilroyBold, gilroyHeavy, gilroyLight, gilroyMedium, gilroySemibold, gilroyThin } from "@/assets/fonts/FontsManager"
-import { ArrowDown, ArrowDownNarrowWide, ArrowLeftRight, ChevronDown } from "lucide-react"
 import URLText from "./URLText"
+import { useEffect, useState } from "react"
 
 export default function Navbar() {
-    return (<nav>
+    const [popOutNav, setPopOutNav] = useState(false)
+
+    useEffect(() => {
+        document.addEventListener("scroll", (e) => {
+            const scrollPosition = window.scrollY;
+            if (scrollPosition > 350) setPopOutNav(true)
+            else setPopOutNav(false)
+        })
+    }, [])
+
+    return (<nav className={popOutNav ? "pop-out" : ""}>
         <div className="left">
             <p>
                 <span className={gilroyBlack.className}>Hila-o-Khushi</span>&nbsp;

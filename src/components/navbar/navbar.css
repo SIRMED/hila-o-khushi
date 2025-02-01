@@ -1,5 +1,5 @@
 nav {
-    background: #111111e4;
+    background: #111111f2;
     backdrop-filter: blur(15px);
     border-bottom: 1px solid hsl(var(--border));
     padding: 1rem 2rem;
@@ -7,6 +7,16 @@ nav {
     position: sticky;
     top: 0;
     z-index: 99999;
+}
+
+nav.pop-out {
+    width: 98vw;
+    margin: 1vw;
+    background: #111111c8;
+    top: 0.5vw;
+    padding: 0.2rem 2rem;
+    border-bottom: 1px solid transparent;
+    border-radius: 8px;
 }
 
 .switcher:hover {

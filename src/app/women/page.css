@@ -6,7 +6,7 @@ header .info {
     position: absolute;
     top: 30%;
     right: 5rem;
-    width: 60vw;
+    width: 80vw;
     text-align: right;
     z-index: 10;
 }
@@ -15,7 +15,7 @@ header .info::before {
     content: '';
     position: absolute;
     top: -10px;
-    left: 200px;
+    left: 100px;
     right: -10px;
     bottom: -10px;
     background: rgba(0, 0, 0, 0.534);
@@ -28,20 +28,14 @@ header .info .paragraph {
     font-size: 20px;
 }
 
-.heat-map > * {
+.demographics > * {
     display: inline-block;
     vertical-align: top;
 }
 
-.heat-map .info {
-    text-align: right;
-    width: auto;
-    font-size: 28px;
-    max-width: 45vw;
-}
-
-.heat-map .info p span {
-    font-weight: bolder;
+.demographics .info {
+    width: 59vw;
+    padding: 10rem;
 }
 
 .card {

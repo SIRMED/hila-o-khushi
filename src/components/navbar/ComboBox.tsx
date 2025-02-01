@@ -1,6 +1,5 @@
 "use client"
 
-import * as React from "react"
 import { Check, ChevronsUpDown } from "lucide-react"
 
 import { cn } from "@/lib/utils"
@@ -18,6 +17,8 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
+import { redirect, usePathname } from "next/navigation"
+import { useEffect, useState } from "react"
 
 const frameworks = [
   {
@@ -31,11 +32,18 @@ const frameworks = [
 ]
 
 export function ComboboxDemo() {
-  const [open, setOpen] = React.useState(false)
-  const [value, setValue] = React.useState("education")
+  const path = usePathname().split("/")[1]
+  const [open, setOpen] = useState(false)
+  const [value, setValue] = useState(path)
 
-  return (
-    <Popover open={open} onOpenChange={setOpen}>
+  useEffect(() => {
+    if (value !== path) {
+      redirect(`/${value}`)
+    }
+  }, [value])
+
+  return (<>
+    {(path === "education" || path === "women") ? <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
         <Button
           variant="ghost"
@@ -49,7 +57,7 @@ export function ComboboxDemo() {
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[300px] p-0" style={{zIndex: "99999999999999999999999999999999999999999999999999999999999999999999999999999999"}}>
+      <PopoverContent className="w-[300px] p-0" style={{ zIndex: "99999999999999999999999999999999999999999999999999999999999999999999999999999999" }}>
         <Command>
           <CommandList>
             <CommandGroup>
@@ -57,7 +65,7 @@ export function ComboboxDemo() {
                 <CommandItem
                   key={framework.value}
                   value={framework.value}
-                  onSelect={(currentValue : any) => {
+                  onSelect={(currentValue: any) => {
                     setValue(currentValue === value ? "" : currentValue)
                     setOpen(false)
                   }}
@@ -75,6 +83,6 @@ export function ComboboxDemo() {
           </CommandList>
         </Command>
       </PopoverContent>
-    </Popover>
-  )
+    </Popover> : <span>&nbsp;&nbsp; <span className="text-red-500">404</span> - This page does not exist</span>}
+  </>)
 }

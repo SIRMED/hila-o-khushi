@@ -10,7 +10,7 @@ export default function () {
     console.log(path)
 
     return (<>
-        <span className="text-gray-400 switcher">&nbsp; &nbsp;/ 
+        <span className="text-gray-400 switcher">&nbsp; &nbsp;/
         </span>
         <ComboboxDemo />
     </>)
